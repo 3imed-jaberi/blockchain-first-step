@@ -1,0 +1,38 @@
+{
+  "name": "blockchain-workshop",
+  "version": "1.0.0",
+  "description": "this a quick emulation for blockchain system .. ",
+  "main": "index.js",
+  "scripts": {
+    "inity": "yarn",
+    "init": "npm",
+    "test": "mocha",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/3imed-jaberi/blockchain-workshop.git"
+  },
+  "keywords": [
+    "blockchain",
+    "blocks",
+    "cryptography"
+  ],
+  "author": "3imed jaberi <imed_jebari@hotmail.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/3imed-jaberi/blockchain-workshop/issues"
+  },
+  "homepage": "https://github.com/3imed-jaberi/blockchain-workshop#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1",
+    "dotenv": "^8.0.0",
+    "mocha": "^6.1.4",
+    "chai": "^4.2.0"
+  }
+}
