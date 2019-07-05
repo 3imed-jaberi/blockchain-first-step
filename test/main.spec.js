@@ -79,4 +79,18 @@ describe(' `Blockchain ❄️ ` unit test using ` mocha ☕️ ` & ` chai 🍵 `
     expect(blockchain.isValidChain(blockchain2.chain)).to.be.false;
   });
 
+  it('Replace the chain with a valid chain 💯 ', () => {
+    blockchain2.addBlock('goo');
+    blockchain.ReplaceChain(blockchain2.chain);
+
+    expect(blockchain.chain).to.equal(blockchain2.chain);
+  });
+
+  it('Doesn\'t replace the chain with one of less than or equal to length 💯 ', () => {
+    blockchain.addBlock('foo');
+    blockchain.ReplaceChain(blockchain2.chain);
+
+    expect(blockchain.chain).not.to.equal(blockchain2.chain);
+  });
+  
 }); 

@@ -33,7 +33,20 @@ class Blockchain {
 
     return true;     
   }
+
   
+  ReplaceChain(newChain) {
+    if (newChain.length <= this.chain.length) {
+      console.log('The new chain is required update beceaus is less length than current chain ..');
+      return;
+    } else if (!this.isValidChain(newChain)) {
+      console.log('The received chain is not valid. ( not sync )');
+      return;
+    }
+
+    console.log('Replacing the current chain with the new chain.');
+    this.chain = newChain;
+  }
 
 }
 
