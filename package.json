@@ -4,6 +4,8 @@
   "description": "this a quick emulation for blockchain system .. ",
   "main": "index.js",
   "scripts": {
+    "inity": "yarn",
+    "init": "npm",
     "test": "mocha",
     "start": "node index.js",
     "dev": "nodemon index.js"
