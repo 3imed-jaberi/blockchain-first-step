@@ -39,12 +39,13 @@ describe(' `Block 🎲 ` unit test using ` mocha ☕️ ` & ` chai 🍵 ` 👻 .
 
 //___ Blockchain Test ___//
 
-describe(' `Block ❄️ ` unit test using ` mocha ☕️ ` & ` chai 🍵 ` 👻 ..', () => {
+describe(' `Blockchain ❄️ ` unit test using ` mocha ☕️ ` & ` chai 🍵 ` 👻 ..', () => {
 
-  let blockchain;
+  let blockchain , blockchain2 ;
 
   beforeEach(() => {
     blockchain = new Blockchain();
+    blockchain2 = new Blockchain();
   });
 
   it('`Blockchain` should be start with `Genesis Block` 💯 ', () => {
@@ -57,6 +58,25 @@ describe(' `Block ❄️ ` unit test using ` mocha ☕️ ` & ` chai 🍵 ` 👻
     blockchain.addBlock(data);
 
     expect(blockchain.chain[blockchain.chain.length-1].data).to.equal(data);
+  });
+
+  it('Validate the chain ( Sync Forks ) 💯 ', () => {
+    blockchain2.addBlock(process.env.AUTHOR);
+
+    expect(blockchain.isValidChain(blockchain2.chain)).to.be.true;
+  });
+
+  it('Invalidate a chain with a failed genesis block 💯 ', () => {
+    blockchain2.chain[0].data = process.env.NOT_AUTHOR || 'Bad Data' ;
+
+    expect(blockchain.isValidChain(blockchain2.chain)).to.be.false;
+  });
+
+  it('Invalidate a failed chain ( Async Forks ) 💯 ', () => {
+    blockchain2.addBlock(process.env.AUTHOR);
+    blockchain2.chain[1].data = process.env.NOT_AUTHOR;
+
+    expect(blockchain.isValidChain(blockchain2.chain)).to.be.false;
   });
 
 }); 

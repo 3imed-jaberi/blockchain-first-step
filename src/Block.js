@@ -41,6 +41,11 @@ class Block {
    return SHA256( `${timestamp}${previousHash}${JSON.stringify(data)}`).toString();
   }
 
+  static BlockHash(block) {
+    const { timestamp, previousHash, data } = block;
+    return Block.Hash(timestamp, previousHash, data);
+  }
+
 }
 
 module.exports = Block ;
