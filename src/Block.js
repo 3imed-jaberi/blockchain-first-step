@@ -1,12 +1,12 @@
 require('dotenv').config();
 
-// const SHA256 = require('crypto-js/sha256');
+const SHA256 = require('crypto-js/sha256');
 const uuid = require('uuid/v4');
 
 class Block {
 
   constructor(index,timestamp, previousHash, hash, data) {
-    this.index = index
+    this.index = index;
     this.timestamp = timestamp;
     this.previousHash = previousHash;
     this.hash = hash;
@@ -31,14 +31,14 @@ class Block {
     const index = uuid().substring(0,5); 
     const timestamp = Date.now();
     const previousHash = previousBlock.hash;
-    const hash =  process.env.MB_HASH;
+    const hash =  Block.Hash(index,Date.now(),previousHash,data);
 
     return new this (index,timestamp,previousHash,hash,data);
   }
 
-/*   Hash () { 
+  Hash () { 
     return SHA256( `${this.index}${this.timestamp}${this.previousHash}${JSON.stringify(this.data)}`).toString();
-  } */
+  }
 
 }
 
