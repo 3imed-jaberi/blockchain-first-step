@@ -36,7 +36,7 @@ class Block {
     return new this (index,timestamp,previousHash,hash,data);
   }
 
-  Hash () { 
+  Hash (index,timestamp,previousHash,data) { 
     return SHA256( `${this.index}${this.timestamp}${this.previousHash}${JSON.stringify(this.data)}`).toString();
   }
 
