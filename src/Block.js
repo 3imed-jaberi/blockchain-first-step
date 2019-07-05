@@ -1,3 +1,4 @@
+require('dotenv').config();
 
 class Block {
 
@@ -16,6 +17,11 @@ class Block {
     Hash          : ${this.hash.substring(0,10)} 
     Data          : ${this.data} 
     `;
+  }
+
+  static GenerateGenesisBlock() {
+    const { INDEX, TIMESTAMP, PREVIOUS_HASH, HASH, DATA } = process.env ; 
+    return new this (INDEX,TIMESTAMP,PREVIOUS_HASH,HASH,DATA);
   }
 
 }
