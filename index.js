@@ -1,6 +1,7 @@
+require('dotenv').config();
 
+/**
+ * Basic Example With IIFE .. 
+ */
 
-const author = require('./src/main');
-
-console.log(author);
-
+console.log(require('./src/main')(process.env.AUTHOR));
