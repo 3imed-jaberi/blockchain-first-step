@@ -1,6 +1,6 @@
+const Block = require('./src/Block');
 
 
-const author = require('./src/main');
+const block = new Block('100','2007-07-31','last-hash-demo','current-hash-demo','jawher jaberi <brother> ..');
 
-console.log(author);
-
+console.log(block.toString());
