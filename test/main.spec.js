@@ -1,14 +1,15 @@
 
 'use strict';
 
+require('dotenv').config();
+
 const expect = require('chai').expect;
-const author = require('../src/main');
 
-describe('intial unit test using ` mocha ☕️ ` & ` chai 🍵 ` 👻 ..', () => {
+describe('cryptography algorithm unit test using ` mocha ☕️ ` & ` chai 🍵 ` 👻 ..', () => {
 
-  it('Checkout author is `Imed Jaberi` 🚀 ', () => {
+  it('Check out Hached Data 🗝 ..', () => {
     // like 5 === 5 ..
-    expect(author).to.equal("Imed Jaberi");
+    expect(require('../src/main')(process.env.AUTHOR)).to.equal(require('../src/main')('Imed Jaberi'));
   });
 
 });
